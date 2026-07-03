@@ -2353,7 +2353,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\n\tBasePlayer player = msg.player;\r\n\tif (CanPlayerAdmin(player))\r\n\t{\r\n\t\tOpenShop(player);\r\n\t\tClientRPC(RpcTarget.Player(\"CLIENT_OpenAdminMenu\", player));\r\n\t\tInterface.CallHook(\"OnOpenVendingAdmin\", this, player);\r\n\t}\r\n}\r\n\r\n"
+      "CodeAfterInjection": "//---\r\n\tBasePlayer player = msg.player;\r\n\tif (CanPlayerAdmin(player))\r\n\t{\r\n\t\tOpenShop(player, \"notCustomerPanel\");\r\n\t\tClientRPC(RpcTarget.Player(\"CLIENT_OpenAdminMenu\", player));\r\n\t\tInterface.CallHook(\"OnOpenVendingAdmin\", this, player);\r\n\t}\r\n}\r\n\r\n"
     },
     {
       "Type": 0,
@@ -2373,7 +2373,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "public void RPC_OpenShop(RPCMessage msg)\r\n{\r\n\tif (OccupiedCheck(msg.player) && Interface.CallHook(\"OnVendingShopOpen\", this, msg.player) == null)\r\n\t{\r\n\t\tOpenShop(msg.player);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", this, msg.player);\r\n\t}\r\n}\r\n"
+      "CodeAfterInjection": "public void RPC_OpenShop(RPCMessage msg)\r\n{\r\n\tif (OccupiedCheck(msg.player) && Interface.CallHook(\"OnVendingShopOpen\", this, msg.player) == null)\r\n\t{\r\n\t\tOpenShop(msg.player, customerPanel);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", this, msg.player);\r\n\t}\r\n}\r\n"
     },
     {
       "Type": 0,
@@ -12150,7 +12150,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\npublic void RPC_OpenShop(RPCMessage msg)\r\n{\r\n\tif (OccupiedCheck(msg.player) && Interface.CallHook(\"OnVendingShopOpen\", this, msg.player) == null)\r\n\t{\r\n\t\tOpenShop(msg.player);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", this, msg.player);\r\n\t}\r\n}\r\n\r\n"
+      "CodeAfterInjection": "//---\r\npublic void RPC_OpenShop(RPCMessage msg)\r\n{\r\n\tif (OccupiedCheck(msg.player) && Interface.CallHook(\"OnVendingShopOpen\", this, msg.player) == null)\r\n\t{\r\n\t\tOpenShop(msg.player, customerPanel);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", this, msg.player);\r\n\t}\r\n}\r\n\r\n"
     },
     {
       "Type": 0,
@@ -14861,7 +14861,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\n{\r\n\tif (vendingMachine == null)\r\n\t{\r\n\t\tvendingMachine = GetComponentInChildren<NPCVendingMachine>();\r\n\t}\r\n\tif (Interface.CallHook(\"OnVendingShopOpen\", vendingMachine, msg.player) == null)\r\n\t{\r\n\t\tvendingMachine.OpenShop(msg.player);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", vendingMachine, msg.player);\r\n\t}\r\n}\r\n"
+      "CodeAfterInjection": "//---\r\n{\r\n\tif (vendingMachine == null)\r\n\t{\r\n\t\tvendingMachine = GetComponentInChildren<NPCVendingMachine>();\r\n\t}\r\n\tif (Interface.CallHook(\"OnVendingShopOpen\", vendingMachine, msg.player) == null)\r\n\t{\r\n\t\tvendingMachine.OpenShop(msg.player, vendingMachine.customerPanel);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", vendingMachine, msg.player);\r\n\t}\r\n}\r\n"
     },
     {
       "Type": 0,
@@ -14881,7 +14881,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\n\t\tvendingMachine = GetComponentInChildren<NPCVendingMachine>();\r\n\t}\r\n\tif (Interface.CallHook(\"OnVendingShopOpen\", vendingMachine, msg.player) == null)\r\n\t{\r\n\t\tvendingMachine.OpenShop(msg.player);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", vendingMachine, msg.player);\r\n\t}\r\n}\r\n\r\n"
+      "CodeAfterInjection": "//---\r\n\t\tvendingMachine = GetComponentInChildren<NPCVendingMachine>();\r\n\t}\r\n\tif (Interface.CallHook(\"OnVendingShopOpen\", vendingMachine, msg.player) == null)\r\n\t{\r\n\t\tvendingMachine.OpenShop(msg.player, vendingMachine.customerPanel);\r\n\t\tInterface.CallHook(\"OnVendingShopOpened\", vendingMachine, msg.player);\r\n\t}\r\n}\r\n\r\n"
     },
     {
       "Type": 0,
