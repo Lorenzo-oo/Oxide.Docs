@@ -11742,7 +11742,7 @@
       "Name": "OnEntityReskin",
       "HookName": "OnEntityReskin",
       "HookParameters": {
-        "itemDefinition": "ItemDefinition",
+        "baseEntity": "BaseEntity",
         "uInt64": "ulong",
         "player": "BasePlayer"
       },
@@ -11756,14 +11756,14 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\n\t\tif (!GetItemDefinitionForEntity(baseEntity, out var def, useRedirect: false))\r\n\t\t{\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tulong num2 = ItemDefinition.FindSkin((def.isRedirectOf != null) ? def.isRedirectOf.itemid : def.itemid, num);\r\n\t\tif (Interface.CallHook(\"OnEntityReskin\", def, num2, msg.player) != null)\r\n\t\t{\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tif (!TryFindTargetRedirect(def, num, out var targetRedirect))\r\n\t\t{\r\n//---\r\n"
+      "CodeAfterInjection": "//---\r\n\t\tif (!GetItemDefinitionForEntity(baseEntity, out var def, useRedirect: false))\r\n\t\t{\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tulong num2 = ItemDefinition.FindSkin((def.isRedirectOf != null) ? def.isRedirectOf.itemid : def.itemid, num);\r\n\t\tif (Interface.CallHook(\"OnEntityReskin\", baseEntity, num2, msg.player) != null)\r\n\t\t{\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tif (!TryFindTargetRedirect(def, num, out var targetRedirect))\r\n\t\t{\r\n//---\r\n"
     },
     {
       "Type": 0,
       "Name": "OnEntityReskinned",
       "HookName": "OnEntityReskinned",
       "HookParameters": {
-        "itemDefinition": "ItemDefinition",
+        "baseEntity": "BaseEntity",
         "uInt64": "ulong",
         "player": "BasePlayer"
       },
@@ -11777,7 +11777,7 @@
           "msg": "BaseEntity.RPCMessage"
         }
       },
-      "CodeAfterInjection": "//---\r\n\t\tif (baseEntity is IReskinCallback reskinCallback)\r\n\t\t{\r\n\t\t\treskinCallback.OnReskinned(player);\r\n\t\t}\r\n\t\tbaseEntity.SendNetworkUpdate();\r\n\t\tInterface.CallHook(\"OnEntityReskinned\", def, num2, msg.player);\r\n\t\tClientRPC(RpcTarget.NetworkGroup(\"Client_ReskinResult\"), 1, baseEntity.net.ID);\r\n\t\tif (!base.UsingInfiniteAmmoCheat)\r\n\t\t{\r\n\t\t\tLoseCondition(ConditionLossPerReskin);\r\n\t\t}\r\n//---\r\n"
+      "CodeAfterInjection": "//---\r\n\t\tif (baseEntity is IReskinCallback reskinCallback)\r\n\t\t{\r\n\t\t\treskinCallback.OnReskinned(player);\r\n\t\t}\r\n\t\tbaseEntity.SendNetworkUpdate();\r\n\t\tInterface.CallHook(\"OnEntityReskinned\", baseEntity, num2, msg.player);\r\n\t\tClientRPC(RpcTarget.NetworkGroup(\"Client_ReskinResult\"), 1, baseEntity.net.ID);\r\n\t\tif (!base.UsingInfiniteAmmoCheat)\r\n\t\t{\r\n\t\t\tLoseCondition(ConditionLossPerReskin);\r\n\t\t}\r\n//---\r\n"
     },
     {
       "Type": 0,
