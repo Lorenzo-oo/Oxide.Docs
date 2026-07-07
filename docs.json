@@ -16509,6 +16509,47 @@
     },
     {
       "Type": 0,
+      "Name": "OnApartmentMasterKeyPurchase",
+      "HookName": "OnApartmentMasterKeyPurchase",
+      "HookParameters": {
+        "player": "BasePlayer"
+      },
+      "ReturnBehavior": 1,
+      "TargetType": "NPCApartmentSecurity",
+      "Category": "Apartments",
+      "MethodData": {
+        "MethodName": "OnPurchaseKey",
+        "ReturnType": "void",
+        "Arguments": {
+          "player": "BasePlayer",
+          "position": "UnityEngine.Vector3"
+        }
+      },
+      "CodeAfterInjection": "public static void OnPurchaseKey(BasePlayer player, Vector3 position)\r\n{\r\n\tif (Interface.CallHook(\"OnApartmentMasterKeyPurchase\", player) != null)\r\n\t{\r\n\t\treturn;\r\n\t}\r\n\tItemDefinition itemDefinition = ItemManager.FindItemDefinition(\"scrap\");\r\n\tint masterkeyprice = ApartmentCommands.masterkeyprice;\r\n//---\r\n"
+    },
+    {
+      "Type": 0,
+      "Name": "CanAffordApartmentMasterKey",
+      "HookName": "CanAffordApartmentMasterKey",
+      "HookParameters": {
+        "player": "BasePlayer",
+        "instance": "NPCApartmentSecurity"
+      },
+      "ReturnTypeOverwrite": "bool",
+      "ReturnBehavior": 1,
+      "TargetType": "NPCApartmentSecurity",
+      "Category": "Apartments",
+      "MethodData": {
+        "MethodName": "Conversation_CanAffordMasterKey",
+        "ReturnType": "bool",
+        "Arguments": {
+          "player": "BasePlayer"
+        }
+      },
+      "CodeAfterInjection": "public bool Conversation_CanAffordMasterKey(BasePlayer player)\r\n{\r\n\tobject obj = Interface.CallHook(\"CanAffordApartmentMasterKey\", player, this);\r\n\tif (obj is bool)\r\n\t{\r\n\t\treturn (bool)obj;\r\n\t}\r\n\tItemDefinition definition = ItemManager.FindItemDefinition(\"scrap\");\r\n//---\r\n"
+    },
+    {
+      "Type": 0,
       "Name": "OnPlayerVoice",
       "HookName": "OnPlayerVoice",
       "HookParameters": {
@@ -16526,6 +16567,43 @@
         }
       },
       "CodeAfterInjection": "//---\r\n{\r\n\tBasePlayer basePlayer = NetworkPacketEx.Player(packet);\r\n\tif (!(basePlayer == null))\r\n\t{\r\n\t\tArraySegment<byte> arraySegment = packet.read.BytesSegmentWithSize(1048576u);\r\n\t\tif (arraySegment.Count <= ConVar.Server.maxpacketsize_voicedata && Interface.CallHook(\"OnPlayerVoice\", basePlayer, arraySegment) == null)\r\n\t\t{\r\n\t\t\tbasePlayer.OnReceivedVoice(arraySegment);\r\n\t\t}\r\n\t}\r\n}\r\n"
+    },
+    {
+      "Type": 0,
+      "Name": "OnApartmentMasterKeyPurchased",
+      "HookName": "OnApartmentMasterKeyPurchased",
+      "HookParameters": {
+        "player": "BasePlayer",
+        "item": "Item"
+      },
+      "ReturnBehavior": 0,
+      "TargetType": "NPCApartmentSecurity",
+      "Category": "Apartments",
+      "MethodData": {
+        "MethodName": "OnPurchaseKey",
+        "ReturnType": "void",
+        "Arguments": {
+          "player": "BasePlayer",
+          "position": "UnityEngine.Vector3"
+        }
+      },
+      "CodeAfterInjection": "//---\r\n\t\tItem item = ItemManager.Create(masterKeyDef, 1, 0uL, isServerSide: true, 0uL);\r\n\t\tif (item != null)\r\n\t\t{\r\n\t\t\titem.AddItemOwnership(player, ItemOwnershipPhrases.VendorSale);\r\n\t\t\tplayer.GiveItem(item, GiveItemReason.PickedUp);\r\n\t\t\tInterface.CallHook(\"OnApartmentMasterKeyPurchased\", player, item);\r\n\t\t}\r\n\t}\r\n}\r\n\r\n"
+    },
+    {
+      "Type": 1,
+      "Name": "OnApartmentMasterKeyPurchased [Patch]",
+      "HookName": "OnApartmentMasterKeyPurchased [Patch]",
+      "ReturnBehavior": 0,
+      "TargetType": "NPCApartmentSecurity",
+      "Category": "Apartments",
+      "MethodData": {
+        "MethodName": "OnPurchaseKey",
+        "ReturnType": "void",
+        "Arguments": {
+          "player": "BasePlayer",
+          "position": "UnityEngine.Vector3"
+        }
+      }
     },
     {
       "Type": 0,
