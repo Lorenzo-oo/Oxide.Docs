@@ -5,7 +5,7 @@ after: timers
 
 # Web Requests
 
-Make a web request to a URI (Uniform Resource Identifier) using the HTTP GET, POST, or PUT methods.
+Make a web request to a URI (Uniform Resource Identifier) using the HTTP GET, POST, PUT, DELETE, or PATCH methods.
 
 Web requests create a raw connection to a web page as done in a web browser. The request will return true if the web request was sent, false if not.
 
@@ -29,14 +29,14 @@ webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response)
 
 ## Advanced GET request
 
-The following example demonstrates how to specify custom request timeout and/or additional headers.
+The following example demonstrates how to specify custom request timeout and/or additional headers. The timeout is in **seconds**; if you pass `0f` (or omit it) the default of 30 seconds is used.
 
 ```csharp
 [Command("get")]
 private void GetRequest(IPlayer player, string command, string[] args)
 {
-    // Set a custom timeout (in milliseconds)
-    float timeout = 200f;
+    // Set a custom timeout (in seconds)
+    float timeout = 5f;
 
     // Set some custom request headers (eg. for HTTP Basic Auth)
     Dictionary<string, string> headers = new Dictionary<string, string> { { "header", "value" } };

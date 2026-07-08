@@ -11,9 +11,9 @@ The lifecycle of a game server application
 
 The first initialization state generally occurs very early during the start-up process of a game server. Oxide does the following...
 
-1. Create a temporary in-memory PipeLogger to store any log messages made during initialization.
+1. Set up the root logger (a `CompoundLogger` with a `RotatingFileLogger`) to store any log messages made during initialization.
 1. Loads Oxide configuration files.
-1. Load libraries and start standalone applications (e.g. Oxide.Database, Oxide.Compiler).
+1. Load libraries and start standalone applications (e.g. Oxide.Compiler).
 1. Load the game extension.
 1. Initialize logging. 
 1. Load user and group data.
@@ -70,19 +70,19 @@ Dedicated servers typically announce to players that a server is available using
 Oxide does not support player client modification, except when the game networking stack requires using a game client as a server (e.g. P2P).
 ### Handshake
 
-The following hooks allow plugins to intercept or listen to connection events.
+The following hooks allow plugins to intercept or listen to connection events. These are the Covalence (cross-game) hooks that work with `IPlayer`; each also has a Rust-specific counterpart (`OnPlayerConnected(BasePlayer)` etc.).
 ```csharp
-bool CanPlayerLogin(string playerName, string playerId, string playerIp)
-void OnPlayerApproved(string playerName, string playerId, string playerIp)
-void OnPlayerConnected(IPlayer player);
+object CanUserLogin(string playerName, string playerId, string playerIp)
+void OnUserApproved(string playerName, string playerId, string playerIp)
+void OnUserConnected(IPlayer player);
 ```
 
 ### Connection authorization
 
-Authorize client connections at the very beginning of the handshake, before IPlayer initialization occurs.
+Authorize client connections at the very beginning of the handshake, before IPlayer initialization occurs. Return a non-null value (e.g. a kick message, or `false`) to reject the connection.
 
 ```csharp
-bool CanPlayerLogin(string playerName, string playerId, string playerIp)
+object CanUserLogin(string playerName, string playerId, string playerIp)
 {
     return false;
 }
@@ -91,7 +91,7 @@ bool CanPlayerLogin(string playerName, string playerId, string playerIp)
 Monitor and/or drop an IPlayer after they are fully initialized.
 
 ```csharp
-void OnPlayerConnected(IPlayer player)
+void OnUserConnected(IPlayer player)
 {
     if (player.Name == "Calytic")
     {
@@ -102,8 +102,8 @@ void OnPlayerConnected(IPlayer player)
 
 ### Disconnect monitoring
 ```csharp
-void OnPlayerDisconnected(IPlayer player);
-void OnPlayerKicked(IPlayer player, string reason);
+void OnUserDisconnected(IPlayer player, string reason);
+void OnUserKicked(IPlayer player, string reason);
 ```
 
 

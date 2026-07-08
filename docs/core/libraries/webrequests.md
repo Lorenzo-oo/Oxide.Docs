@@ -17,8 +17,8 @@ after: timers
 
 ## `Enqueue`
 
-The `Enqueue` method is used for sending `POST`, `PUT` and `GET` requests, the method also supports `Headers` which can be supplied via the arguments.
+The `Enqueue` method is used for sending `GET`, `POST`, `PUT`, `DELETE` and `PATCH` requests, the method also supports `Headers` which can be supplied via the arguments. The `timeout` argument is in seconds (`0` uses the 30 second default).
 
 ::: details Github Location
-[`Enqueue`](https://github.com/OxideMod/Oxide.Core/blob/develop/src/Libraries/WebRequests.cs#L492)
+[`Enqueue`](https://github.com/OxideMod/Oxide.Core/blob/develop/src/Libraries/WebRequests.cs)
 :::

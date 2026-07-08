@@ -9,7 +9,7 @@ after: Timers
 
 Oxides WebRequests library is responsible for handling HTTP requests asynchronously, when utilized in your plugin it can effectively and efficiently communicate with web resources.
 
-## Using `Enqeue` to send a `GET Request`
+## Using `Enqueue` to send a `GET Request`
 
 ```csharp
 webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response) =>
@@ -29,8 +29,8 @@ Advanced GET Request
 [Command("get")]
 private void GetRequest(IPlayer player, string command, string[] args)
 {
-    // Set a custom timeout (in milliseconds)
-    float timeout = 200f;
+    // Set a custom timeout (in seconds); 0f or omitted uses the 30 second default
+    float timeout = 5f;
 
     // Set some custom request headers (eg. for HTTP Basic Auth)
     Dictionary<string, string> headers = new Dictionary<string, string> { { "header", "value" } };
@@ -51,7 +51,7 @@ private void GetCallback(int code, string response, IPlayer player)
 }
 ```
 
-## Using `Enqeue` to send a `POST Request`
+## Using `Enqueue` to send a `POST Request`
 
 ```csharp
 webrequest.Enqueue("http://www.google.com/search?q=umod", "param1=value1", (code, response) =>
@@ -65,7 +65,7 @@ webrequest.Enqueue("http://www.google.com/search?q=umod", "param1=value1", (code
 }, this, RequestMethod.POST);
 ```
 
-## Using `Enqeue` to send a `PUT Request`
+## Using `Enqueue` to send a `PUT Request`
 
 ```csharp
 webrequest.Enqueue("http://www.google.com/search?q=umod", null, (code, response) =>

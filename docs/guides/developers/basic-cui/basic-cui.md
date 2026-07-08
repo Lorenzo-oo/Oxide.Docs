@@ -500,9 +500,9 @@ CuiElement is an assembly of single or multiple components. The CuiElement membe
 
 | Field | Type | Description |
 | :---------- | :-------- | :-------------------------------------------------------- |  
-| ActivateSelf | bool | Flag to activate/deactivate this CuiElement without a complete resend |
+| ActiveSelf | bool? | Flag to activate/deactivate this CuiElement without a complete resend |
 | Components | List\<ICuiComponent\> | a list of components to define the element  |  
-| DestroyUI | string | Name of the UI to auto destroy  |  
+| DestroyUi | string | Name of the UI to auto destroy  |  
 | FadeOut | float | Fade out time in seconds   |
 | Name | string | Name of the element.  |  
 | Parent | string | Parent name of this element  |

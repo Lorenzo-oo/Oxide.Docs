@@ -10,7 +10,7 @@ after: permission
 **Usage:** `oxide.lang <two-letter language code>`  
 **Aliases:** `o.lang`, `lang`
 
-Sets the server language to the specified language.
+Sets the language to the specified language. Run from the server console it sets the **server** language; run by a player in chat it sets that **player's** language.
 
 ### Example `oxide.lang en`
 

@@ -31,16 +31,11 @@ void Init()
 
 Loaded occurs after successful plugin initialization, but just before the plugin is registered to the service container. Any exceptions caused during loading hooks will prevent plugin registration, rollback compilation, and emit an error.
 
-The loaded hook is considered the correct place to obtain asynchronously loaded configuration and localization data.
+The loaded hook is considered the correct place to obtain asynchronously loaded configuration and localization data. The `Loaded` hook takes no arguments; read your configuration through the `Config` object (or your own typed config loaded in `LoadConfig`).
 ```csharp
-[Config]
-class DefaultConfig
+void Loaded()
 {
-  bool ConfigOption = true;
-}
-
-void Loaded(DefaultConfig defaultConfig)
-{
+   bool configOption = Config.Get<bool>("ConfigOption");
    // Do stuff
 }
 ```

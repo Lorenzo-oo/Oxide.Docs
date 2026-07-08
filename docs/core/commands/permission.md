@@ -20,10 +20,14 @@ Player 'OxideMod (76561199558781314)' granted permission 'myawesomeplugin.use'
 
 ## oxide.group
 
-**Usage:** `oxide.group <add|set> <name> [title] [rank]`  
+**Usage:**
+- `oxide.group <add|set> <name> [title] [rank]`
+- `oxide.group <remove> <name>`
+- `oxide.group <parent> <name> <parentName>`
+
 **Aliases:** `o.group`, `perm.group`
 
-Adds or removes a permission group.
+Adds, modifies, removes, or sets the parent of a permission group.
 
 ### Example `oxide.group add myfirstgroup`
 
