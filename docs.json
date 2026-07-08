@@ -533,7 +533,7 @@
       "HookParameters": {
         "instance": "DecayEntity",
         "player": "BasePlayer",
-        "true": "bool"
+        "flag": "bool"
       },
       "ReturnBehavior": 1,
       "TargetType": "DecayEntity",
@@ -813,7 +813,7 @@
       "HookName": "OnExplosiveThrown",
       "HookParameters": {
         "player": "BasePlayer",
-        "baseEntity": "BaseEntity",
+        "thrownEntity": "BaseEntity",
         "instance": "ThrownWeapon"
       },
       "ReturnBehavior": 0,
@@ -1617,7 +1617,7 @@
       "HookParameters": {
         "instance": "DecayEntity",
         "player": "BasePlayer",
-        "false": "bool"
+        "flag": "bool"
       },
       "ReturnBehavior": 1,
       "TargetType": "DecayEntity",
@@ -1892,7 +1892,7 @@
       "Name": "OnSaveLoad",
       "HookName": "OnSaveLoad",
       "HookParameters": {
-        "dictionary`2": "Dictionary<BaseEntity, ProtoBuf.Entity>"
+        "dictionary": "Dictionary<BaseEntity, ProtoBuf.Entity>"
       },
       "ReturnTypeOverwrite": "bool",
       "ReturnBehavior": 1,
@@ -2913,7 +2913,7 @@
       "HookName": "OnMeleeAttack",
       "HookParameters": {
         "player": "BasePlayer",
-        "hitInfo": "HitInfo"
+        "obj": "HitInfo"
       },
       "ReturnBehavior": 1,
       "TargetType": "BaseMelee",
@@ -3182,7 +3182,7 @@
       "HookParameters": {
         "instance": "ResourceDispenser",
         "player": "BasePlayer",
-        "item2": "Item"
+        "item": "Item"
       },
       "ReturnTypeOverwrite": "Item",
       "ReturnBehavior": 3,
@@ -3617,7 +3617,7 @@
       "HookName": "OnPlayerActiveShieldDrop",
       "HookParameters": {
         "player": "BasePlayer",
-        "shield": "Shield"
+        "foundShield": "Shield"
       },
       "ReturnBehavior": 1,
       "TargetType": "PlayerBelt",
@@ -3723,7 +3723,7 @@
       "HookName": "OnAmmoSwitch",
       "HookParameters": {
         "instance": "BaseProjectile",
-        "basePlayer": "BasePlayer",
+        "ownerPlayer": "BasePlayer",
         "itemDefinition": "ItemDefinition"
       },
       "ReturnBehavior": 1,
@@ -4284,7 +4284,7 @@
       "HookName": "OnFireBallDamage",
       "HookParameters": {
         "instance": "FireBall",
-        "baseCombatEntity": "BaseCombatEntity",
+        "item": "BaseCombatEntity",
         "hitInfo": "HitInfo"
       },
       "ReturnBehavior": 0,
@@ -5592,7 +5592,7 @@
       "HookParameters": {
         "instance": "BasePlayer",
         "activeItem": "Item",
-        "item": "Item"
+        "activeItem2": "Item"
       },
       "ReturnBehavior": 0,
       "TargetType": "BasePlayer",
@@ -5836,7 +5836,7 @@
         "iOEntity2": "IOEntity",
         "outputIndex": "int",
         "linePoints": "List<UnityEngine.Vector3>",
-        "list`1": "List<float>"
+        "slackLevels": "List<float>"
       },
       "ReturnBehavior": 1,
       "TargetType": "WireTool",
@@ -6623,7 +6623,7 @@
         "inventoryId": "int",
         "slot": "Item",
         "instance": "RepairBench",
-        "basePlayer": "BasePlayer"
+        "player": "BasePlayer"
       },
       "ReturnBehavior": 1,
       "TargetType": "RepairBench",
@@ -6914,7 +6914,7 @@
       "HookName": "OnBoatGroupSpawn",
       "HookParameters": {
         "instance": "BoatGroupSpawner",
-        "vector2": "UnityEngine.Vector2",
+        "position": "UnityEngine.Vector2",
         "quaternion": "UnityEngine.Quaternion",
         "list": "HashSet<RHIB>",
         "flag": "bool",
@@ -7920,7 +7920,7 @@
       "Name": "OnSleepingBagDestroyed",
       "HookName": "OnSleepingBagDestroyed",
       "HookParameters": {
-        "sleepingBag": "SleepingBag",
+        "sleepingBag2": "SleepingBag",
         "userID": "ulong"
       },
       "ReturnBehavior": 0,
@@ -9214,7 +9214,7 @@
         "instance": "Workbench",
         "byID": "TechTreeData.NodeInstance",
         "player": "BasePlayer",
-        "pooledList`1": "PooledList<ItemDefinition>"
+        "pooledList2": "PooledList<ItemDefinition>"
       },
       "ReturnBehavior": 0,
       "TargetType": "Workbench",
@@ -9731,7 +9731,7 @@
       "HookParameters": {
         "instance": "ComputerStation",
         "player": "BasePlayer",
-        "iRemoteControllable": "IRemoteControllable"
+        "component": "IRemoteControllable"
       },
       "ReturnBehavior": 0,
       "TargetType": "ComputerStation",
@@ -9832,10 +9832,10 @@
       "Name": "OnItemStacked [1]",
       "HookName": "OnItemStacked",
       "HookParameters": {
-        "item": "Item",
+        "slot2": "Item",
         "instance": "Item",
         "newcontainer": "ItemContainer",
-        "int32": "int"
+        "num2": "int"
       },
       "ReturnBehavior": 0,
       "TargetType": "Item",
@@ -9987,7 +9987,7 @@
       "HookName": "OnRespawnInformationGiven",
       "HookParameters": {
         "instance": "BasePlayer",
-        "list`1": "List<ProtoBuf.RespawnInformation.SpawnOptions>"
+        "list": "List<ProtoBuf.RespawnInformation.SpawnOptions>"
       },
       "ReturnBehavior": 0,
       "TargetType": "BasePlayer",
@@ -10799,7 +10799,7 @@
       "HookName": "CanPurchaseItem",
       "HookParameters": {
         "buyer": "BasePlayer",
-        "item": "Item",
+        "item4": "Item",
         "onItemPurchased": "Action<BasePlayer, Item>",
         "instance": "VendingMachine",
         "targetContainer": "ItemContainer"
@@ -10828,7 +10828,7 @@
       "Name": "OnVendingShopOpen [NPCTalking]",
       "HookName": "OnVendingShopOpen",
       "HookParameters": {
-        "invisibleVendingMachine": "InvisibleVendingMachine",
+        "vendingMachine": "InvisibleVendingMachine",
         "player": "BasePlayer"
       },
       "ReturnBehavior": 1,
@@ -11666,7 +11666,7 @@
       "HookName": "OnMlrsRocketFired",
       "HookParameters": {
         "instance": "MLRS",
-        "serverProjectile": "ServerProjectile"
+        "projectile": "ServerProjectile"
       },
       "ReturnBehavior": 0,
       "TargetType": "MLRS",
@@ -11784,7 +11784,7 @@
       "Name": "OnItemStacked [2]",
       "HookName": "OnItemStacked",
       "HookParameters": {
-        "item": "Item",
+        "item2": "Item",
         "instance": "Item",
         "newcontainer": "ItemContainer"
       },
@@ -12157,7 +12157,7 @@
       "Name": "OnVendingShopOpened [NPCTalking]",
       "HookName": "OnVendingShopOpened",
       "HookParameters": {
-        "invisibleVendingMachine": "InvisibleVendingMachine",
+        "vendingMachine": "InvisibleVendingMachine",
         "player": "BasePlayer"
       },
       "ReturnBehavior": 0,
@@ -12382,7 +12382,7 @@
       "HookName": "OnWeaponModChange",
       "HookParameters": {
         "instance": "BaseProjectile",
-        "GetOwnerPlayer()": "BasePlayer"
+        "ownerPlayer": "BasePlayer"
       },
       "ReturnBehavior": 1,
       "TargetType": "BaseProjectile",
@@ -12655,7 +12655,7 @@
       "HookName": "OnPlayerBanned",
       "HookParameters": {
         "connection": "Network.Connection",
-        "ToString()": "string"
+        "toString": "string"
       },
       "ReturnBehavior": 0,
       "TargetType": "EACServer",
@@ -12675,7 +12675,7 @@
       "HookName": "OnPlayerKicked",
       "HookParameters": {
         "connection": "Network.Connection",
-        "ToString()": "string"
+        "toString": "string"
       },
       "ReturnBehavior": 0,
       "TargetType": "EACServer",
@@ -13194,7 +13194,7 @@
       "HookParameters": {
         "userId": "ulong",
         "username": "string",
-        "<strChatText>5__2": "string",
+        "strChatText": "string",
         "targetChannel": "ConVar.Chat.ChatChannel",
         "player": "BasePlayer"
       },
@@ -13264,7 +13264,7 @@
       "HookParameters": {
         "instance": "BaseProjectile",
         "ammoSource": "IAmmoContainer",
-        "GetOwnerPlayer()": "BasePlayer"
+        "ownerPlayer": "BasePlayer"
       },
       "ReturnTypeOverwrite": "bool",
       "ReturnBehavior": 1,
@@ -14058,7 +14058,7 @@
       "HookParameters": {
         "instance": "NPCTalking",
         "ply": "BasePlayer",
-        "conversationData": "ConversationData"
+        "conversationFor": "ConversationData"
       },
       "ReturnBehavior": 1,
       "TargetType": "NPCTalking",
@@ -14126,7 +14126,7 @@
       "HookParameters": {
         "instance": "ResourceDispenser",
         "player": "BasePlayer",
-        "item2": "Item"
+        "item": "Item"
       },
       "ReturnBehavior": 0,
       "TargetType": "ResourceDispenser",
@@ -15110,7 +15110,7 @@
       "HookName": "OnPlayerDropActiveItem",
       "HookParameters": {
         "player": "BasePlayer",
-        "item": "Item"
+        "activeItem": "Item"
       },
       "ReturnBehavior": 1,
       "TargetType": "PlayerBelt",
@@ -15252,7 +15252,7 @@
       "HookName": "OnSiegeWeaponFire",
       "HookParameters": {
         "instance": "BatteringRam",
-        "driver": "BasePlayer"
+        "player": "BasePlayer"
       },
       "ReturnBehavior": 1,
       "TargetType": "BatteringRam",
@@ -15400,7 +15400,7 @@
       "Name": "OnGibsSpawned",
       "HookName": "OnGibsSpawned",
       "HookParameters": {
-        "list`1": "List<ServerGib>",
+        "list": "List<ServerGib>",
         "creator": "UnityEngine.GameObject"
       },
       "ReturnBehavior": 0,
@@ -15425,7 +15425,7 @@
       "HookName": "OnCrateSpawned",
       "HookParameters": {
         "instance": "PatrolHelicopter",
-        "baseEntity": "BaseEntity"
+        "baseEntity2": "BaseEntity"
       },
       "ReturnBehavior": 0,
       "TargetType": "PatrolHelicopter",
@@ -15445,7 +15445,7 @@
       "HookName": "OnCrateSpawned",
       "HookParameters": {
         "instance": "BradleyAPC",
-        "baseEntity": "BaseEntity"
+        "baseEntity2": "BaseEntity"
       },
       "ReturnBehavior": 0,
       "TargetType": "BradleyAPC",
@@ -15485,8 +15485,8 @@
       "HookName": "OnFeedbackReported",
       "HookParameters": {
         "basePlayer": "BasePlayer",
-        "string": "string",
         "text": "string",
+        "text2": "string",
         "reportType": "Facepunch.Models.ReportType"
       },
       "ReturnBehavior": 0,
@@ -15519,11 +15519,11 @@
       "HookName": "OnPlayerReported",
       "HookParameters": {
         "basePlayer": "BasePlayer",
-        "text3": "string",
-        "<targetId>5__2": "string",
-        "string": "string",
+        "text4": "string",
+        "targetId": "string",
         "text": "string",
-        "message": "string"
+        "text2": "string",
+        "text3": "string"
       },
       "ReturnBehavior": 0,
       "TargetType": "BasePlayer/<OnPlayerReported>d__773",
@@ -15580,7 +15580,7 @@
         "playerTeam": "RelationshipManager.PlayerTeam",
         "basePlayer": "BasePlayer",
         "uLong": "ulong",
-        "true": "bool"
+        "flag": "bool"
       },
       "ReturnBehavior": 1,
       "TargetType": "RelationshipManager",
@@ -15899,7 +15899,7 @@
       "HookName": "OnBoatGroupSpawned",
       "HookParameters": {
         "instance": "BoatGroupSpawner",
-        "vector2": "UnityEngine.Vector2",
+        "position": "UnityEngine.Vector2",
         "quaternion": "UnityEngine.Quaternion",
         "list": "HashSet<RHIB>",
         "flag": "bool",
@@ -16033,7 +16033,7 @@
       "HookName": "OnCorpsePopulate",
       "HookParameters": {
         "Owner": "BaseEntity",
-        "lootableCorpse": "LootableCorpse"
+        "castedUnityObject": "LootableCorpse"
       },
       "ReturnBehavior": 4,
       "TargetType": "Rust.Ai.Gen2.State_Dead",
@@ -16127,7 +16127,7 @@
         "b2": "byte",
         "num": "uint",
         "num2": "uint",
-        "byte[]": "byte[]"
+        "array": "byte[]"
       },
       "ReturnBehavior": 4,
       "TargetType": "BasePlayer",
@@ -16786,7 +16786,7 @@
       "Name": "OnClanCreated",
       "HookName": "OnClanCreated",
       "HookParameters": {
-        "localClan": "LocalClan",
+        "clan": "LocalClan",
         "leaderSteamId": "ulong"
       },
       "ReturnBehavior": 0,
