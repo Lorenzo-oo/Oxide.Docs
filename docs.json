@@ -11743,7 +11743,7 @@
       "HookName": "OnEntityReskin",
       "HookParameters": {
         "baseEntity": "BaseEntity",
-        "uInt64": "ulong",
+        "num2": "ulong",
         "player": "BasePlayer"
       },
       "ReturnBehavior": 1,
@@ -11764,7 +11764,7 @@
       "HookName": "OnEntityReskinned",
       "HookParameters": {
         "baseEntity": "BaseEntity",
-        "uInt64": "ulong",
+        "num2": "ulong",
         "player": "BasePlayer"
       },
       "ReturnBehavior": 0,
@@ -12340,7 +12340,7 @@
       "HookName": "OnSprayCreate",
       "HookParameters": {
         "instance": "SprayCan",
-        "vector3": "UnityEngine.Vector3",
+        "vector": "UnityEngine.Vector3",
         "quaternion": "UnityEngine.Quaternion"
       },
       "ReturnBehavior": 1,
@@ -16202,7 +16202,7 @@
       "HookName": "OnEngineStarted",
       "HookParameters": {
         "instance": "MotorRowboat",
-        "basePlayer": "BasePlayer"
+        "driver": "BasePlayer"
       },
       "ReturnBehavior": 0,
       "TargetType": "MotorRowboat",
@@ -16554,7 +16554,7 @@
       "HookName": "OnPlayerVoice",
       "HookParameters": {
         "basePlayer": "BasePlayer",
-        "arraySegment`1": "ArraySegment<byte>"
+        "arraySegment": "ArraySegment<byte>"
       },
       "ReturnBehavior": 1,
       "TargetType": "ServerMgr",
