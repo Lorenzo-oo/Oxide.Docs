@@ -15490,7 +15490,7 @@
         "reportType": "Facepunch.Models.ReportType"
       },
       "ReturnBehavior": 0,
-      "TargetType": "BasePlayer/<OnFeedbackReport>d__774",
+      "TargetType": "BasePlayer/<OnFeedbackReport>d__775",
       "Category": "Player",
       "MethodData": {
         "MethodName": "MoveNext",
@@ -15504,7 +15504,7 @@
       "Name": "OnFeedbackReported [patch]",
       "HookName": "OnFeedbackReported",
       "ReturnBehavior": 0,
-      "TargetType": "BasePlayer/<OnFeedbackReport>d__774",
+      "TargetType": "BasePlayer/<OnFeedbackReport>d__775",
       "Category": "_Patches",
       "MethodData": {
         "MethodName": "MoveNext",
@@ -15526,7 +15526,7 @@
         "text3": "string"
       },
       "ReturnBehavior": 0,
-      "TargetType": "BasePlayer/<OnPlayerReported>d__773",
+      "TargetType": "BasePlayer/<OnPlayerReported>d__774",
       "Category": "Player",
       "MethodData": {
         "MethodName": "MoveNext",
